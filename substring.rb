@@ -2,7 +2,7 @@ def substrings(text, dictionary)
     text.downcase! # convert text to lowercase for #match 
     text_array = text.chars # create array of individual characters in text, including spaces
     substring_array = [] 
-    substring_hash = {}    
+    substring_hash = Hash.new(0)    
     
     dictionary.each do |word|
         if text.match(/word/) # if a word in the dictionary has a match within the text
