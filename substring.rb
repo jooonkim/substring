@@ -3,7 +3,6 @@ dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","o
 
 def substrings(text, dictionary)
     text.downcase! # convert text to lowercase for #match 
-    text_array = text.chars # create array of individual characters in text, including spaces
     substring_array = [] 
     substring_hash = Hash.new(0)    
     
@@ -13,21 +12,14 @@ def substrings(text, dictionary)
         end
     end
 
-    substring_array.each do |match|
-        substring_hash[match] += 1
+    substring_array.each do |v|
+        substring_hash[v] += 1
     end
 
-    p substring_hash
+    puts substring_hash
 end
 
+substrings(text, dictionary)
 
     # for each word in dictionary, if there is a sequence in the text that matches, push the word to substring_array
     # for each word in substring_array, push the word to substring_hash, add to value (counter)
-
-
-    # for each word in dictionary 1) set counter, 2) look for sequence of characters within array that match word, 3) add to counter
-    # create hash and add key value pair to hash? ONLY if word in dictionary has > 0 for counter
-    # or from the beginning add word in dictionary to hash as key (if exists) and then add the value as each 
-
-
-    
