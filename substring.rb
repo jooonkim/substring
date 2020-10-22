@@ -1,12 +1,15 @@
+text = "Howdy partner, sit down! How's it going?"
+dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
+
 def substrings(text, dictionary)
     text.downcase! # convert text to lowercase for #match 
     text_array = text.chars # create array of individual characters in text, including spaces
     substring_array = [] 
     substring_hash = Hash.new(0)    
     
-    dictionary.each do |word|
-        if text.match(/word/) # if a word in the dictionary has a match within the text
-            substring_array.push(word) # push word to substring_array
+    for i in 0..(dictionary.length - 1) do # search for dictionary[i] among characters in text_array
+        if text.include?(dictionary[i])
+            substring_array.push(dictionary[i])
         end
     end
 
@@ -14,7 +17,7 @@ def substrings(text, dictionary)
         substring_hash[match] += 1
     end
 
-    puts substring_hash
+    p substring_hash
 end
 
 
