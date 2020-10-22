@@ -1,16 +1,21 @@
 def substrings(text, dictionary)
-    text #turn to lowercase
-    text_array = text.chars
-    substring_array = []
-    substring_hash = {}
-
-
-    
+    text.downcase! # convert text to lowercase for #match 
+    text_array = text.chars # create array of individual characters in text, including spaces
+    substring_array = [] 
+    substring_hash = {}    
     
     dictionary.each do |word|
-        if text.match(/word/)
-            push #push to substring_array
+        if text.match(/word/) # if a word in the dictionary has a match within the text
+            substring_array.push(word) # push word to substring_array
+        end
+    end
 
+    substring_array.each do |match|
+        substring_hash[match] += 1
+    end
+
+    puts substring_hash
+end
 
 
     # for each word in dictionary, if there is a sequence in the text that matches, push the word to substring_array
